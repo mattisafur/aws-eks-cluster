@@ -20,8 +20,8 @@ resource "aws_eks_cluster" "cluster" {
   name     = var.cluster_name
   role_arn = "arn:aws:iam::${data.aws_caller_identity.identity.account_id}:role/${var.cluster_role_name}"
 
-  version = var.kubernetes_version
-  tags    = merge(var.global_cluster_tags, var.cluster_tags)
+  version                   = var.kubernetes_version
+  tags                      = merge(var.global_cluster_tags, var.cluster_tags)
   enabled_cluster_log_types = var.cluster_log_types
 
   vpc_config {
